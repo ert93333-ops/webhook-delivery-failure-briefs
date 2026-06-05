@@ -6,6 +6,7 @@ Static browser-local MVP for turning public-safe failed webhook delivery notes o
 
 - Landing: `https://ert93333-ops.github.io/webhook-delivery-failure-briefs/`
 - Checklist: `https://ert93333-ops.github.io/webhook-delivery-failure-briefs/failed-webhook-delivery-email-template.html`
+- Public Gist checklist: `https://gist.github.com/ert93333-ops/510e40e400589eb7f9b8351e276d4046`
 
 ## Scope
 
