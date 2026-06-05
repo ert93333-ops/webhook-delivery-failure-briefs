@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webhook Delivery Failure Briefs | Failed webhook delivery email template</title>
+  <meta name="description" content="Paste public-safe failed webhook notes and generate a customer-ready failure notice, retry/backfill handoff, customer action plan, idempotency caveat, and payload/privacy risk flags.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Webhook Delivery Failure Briefs">
+  <meta property="og:description" content="Turn failed webhook notes into a customer-ready retry and backfill notice.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ert93333-ops.github.io/webhook-delivery-failure-briefs/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://ert93333-ops.github.io/webhook-delivery-failure-briefs/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workflow">Skip to workflow</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./" aria-label="Webhook Delivery Failure Briefs home">Webhook Delivery Failure Briefs</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#workflow">Workflow</a>
+        <a href="#pricing">Pricing</a>
+        <a href="failed-webhook-delivery-email-template.html">Template</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <h1>Turn failed webhook notes into a customer-ready retry and backfill notice.</h1>
+          <p class="hero-subtitle">Paste public-safe failed delivery notes or draft support replies and get a missing-context checklist, customer-safe notice outline, retry/backfill handoff, customer action plan, idempotency caveat, and payload/privacy risk flags before a human sends it.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#workflow">Generate webhook failure brief</a>
+            <a class="button secondary" href="failed-webhook-delivery-email-template.html">View webhook failure checklist</a>
+          </div>
+        </div>
+        <aside class="brief-preview" aria-label="Brief preview">
+          <p class="brief-label">Checks before sending</p>
+          <strong>Endpoint scope, event type, delivery window, failure reason, retry state, customer action, replay/backfill path, idempotency caveat, owner, and payload risk.</strong>
+          <p>No live replay. No endpoint scan. No payload upload. No webhook secret storage.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="shell section-grid">
+        <div>
+          <h2>Turn vague failed-delivery replies into precise customer integration notices.</h2>
+          <p>Use public-safe notes only. Do not paste raw payloads, endpoint secrets, signing secrets, authorization headers, tokens, customer lists, internal logs, stack traces, customer endpoint URLs, personal data, or confidential customer details.</p>
+          <div class="input-grid">
+            <label>Failed webhook notes or draft customer notice<textarea id="failure-notes" placeholder="Example: invoice.paid delivery failed at 09:42 UTC with HTTP 503."></textarea></label>
+            <label>Affected endpoint, destination, app, workspace, or integration scope<textarea id="scope-notes" class="short-textarea" placeholder="Example: production webhook destination for Acme workspace integration."></textarea></label>
+            <label>Event type, object/entity scope, or delivery window<textarea id="event-notes" class="short-textarea" placeholder="Example: invoice.paid for payment object scope, 09:30-09:45 UTC."></textarea></label>
+            <label>Failure reason or delivery outcome<textarea id="reason-notes" class="short-textarea" placeholder="Example: HTTP 503 timeout, non-2xx response, TLS error, redirect, or network error."></textarea></label>
+            <label>Attempt count, latest attempt, next retry, cadence, or exhaustion state<textarea id="retry-notes" class="short-textarea" placeholder="Example: 3 attempts; next retry at 10:05 UTC; automatic retries not exhausted."></textarea></label>
+            <label>Customer action<textarea id="action-notes" class="short-textarea" placeholder="Example: verify endpoint availability, accepts POST, returns 2xx quickly, check TLS/WAF allowlist."></textarea></label>
+            <label>Replay, manual resend, backfill, reconciliation, or support handoff<textarea id="recovery-notes" class="short-textarea" placeholder="Example: integration support can manual resend missed events if automatic retry fails."></textarea></label>
+            <label>Duplicate/idempotency, out-of-order, or data-loss caveat<textarea id="caveat-notes" class="short-textarea" placeholder="Example: process by event id idempotently; no evidence of data loss; missed-event reconciliation under review."></textarea></label>
+            <label>Owner, reviewer, escalation, support path, or next update<textarea id="owner-notes" class="short-textarea" placeholder="Example: integration support lead owns update; DevRel reviewer; next update by 10:15 UTC."></textarea></label>
+            <label>Tone / privacy notes<textarea id="tone-notes" class="short-textarea" placeholder="Example: no customer blame, no data-loss guarantee, no raw payloads, no signing secrets."></textarea></label>
+          </div>
+          <div class="form-actions">
+            <button class="button secondary" type="button" id="sample-button">Load sample failure</button>
+            <button class="button primary" type="button" id="generate-button">Generate webhook failure brief</button>
+          </div>
+          <p class="copy-status" id="workflow-error" role="status" aria-live="polite"></p>
+        </div>
+        <aside class="output-panel" id="output-panel" aria-live="polite">
+          <div class="status-pill"><span class="status-dot"></span><span id="output-status">Waiting for failed webhook notes</span></div>
+          <div id="brief-output" class="brief-output"><p>Paste public-safe failed webhook context to generate a customer-ready retry and backfill notice.</p></div>
+          <button class="button small" type="button" id="copy-brief" disabled>Copy brief</button>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="shell">
+        <h2>Pay only if this helps reduce integration tickets and prevent unclear webhook failure escalations.</h2>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Starter</h3>
+            <p class="price">$19/month</p>
+            <p>For founders and small API teams reviewing ad hoc failed webhook customer notices.</p>
+            <button class="button full plan-button" type="button" data-plan="Starter">Request Starter access</button>
+          </article>
+          <article class="price-card">
+            <h3>Team</h3>
+            <p class="price">$79/month</p>
+            <p>For API platform, DevRel, support engineering, and integration support teams standardizing customer-facing webhook failure communication.</p>
+            <button class="button full plan-button" type="button" data-plan="Team">Request Team access</button>
+          </article>
+        </div>
+        <form class="handoff-panel" id="intent-form">
+          <h3>Purchase-intent fallback</h3>
+          <p>Stored locally in this browser. The public issue handoff excludes private email by default.</p>
+          <div class="input-grid compact">
+            <label>Email<input id="intent-email" type="email" placeholder="you@example.com"></label>
+            <label>Role/team<input id="intent-role" type="text" placeholder="Founder, DevRel, support engineering, API platform..."></label>
+            <label>Webhook failure volume<input id="failure-volume" type="text" placeholder="Example: 15 failed customer deliveries per month"></label>
+            <label>Current failure notice process<input id="current-process" type="text" placeholder="Example: delivery dashboard plus support macro"></label>
+            <label>Plan interest<select id="plan-interest"><option>Starter</option><option>Team</option></select></label>
+            <label>Willingness to pay<input id="willingness" type="text" placeholder="$19/month, $79/month, paid pilot..."></label>
+          </div>
+          <button class="button primary" type="submit">Request early access</button>
+          <p class="copy-status" id="intent-status" role="status" aria-live="polite"></p>
+          <div id="remote-intent" hidden>
+            <a class="button secondary" id="remote-intent-link" target="_blank" rel="noreferrer">Open public request</a>
+            <button class="button ghost" type="button" id="copy-remote-intent">Copy request details</button>
+            <p class="copy-status" id="remote-copy-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p>Browser-local MVP. No live webhook sending, replay, endpoint checks, endpoint scans, payload upload, signing secret storage, customer list storage, customer email sending, security/legal/SLA advice, or data-loss guarantees.</p>
+      <a href="failed-webhook-delivery-email-template.html">Failed webhook delivery email template</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

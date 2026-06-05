@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Failed webhook delivery email template | Webhook Delivery Failure Briefs</title>
+  <meta name="description" content="A practical failed webhook delivery checklist for customer notices, retry state, backfill path, customer action, idempotency caveats, and payload privacy risk.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Failed webhook delivery email template">
+  <meta property="og:description" content="Checklist for writing customer-facing failed webhook delivery notices.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ert93333-ops.github.io/webhook-delivery-failure-briefs/failed-webhook-delivery-email-template.html">
+  <link rel="canonical" href="https://ert93333-ops.github.io/webhook-delivery-failure-briefs/failed-webhook-delivery-email-template.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./">Webhook Delivery Failure Briefs</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./#workflow">Workflow</a>
+        <a href="./#pricing">Pricing</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="shell article-body">
+        <p class="brief-label">Template</p>
+        <h1>Failed webhook delivery checklist</h1>
+        <p>Use this before sending a customer-facing failed webhook delivery notice. Keep raw payloads, endpoint secrets, signing secrets, authorization headers, tokens, customer lists, internal logs, stack traces, and private endpoint details out of public tools.</p>
+
+        <h2>1. State the delivery scope</h2>
+        <ul>
+          <li>Which endpoint, destination, app, workspace, or customer integration is affected?</li>
+          <li>Which event type, object/entity, and delivery window are involved?</li>
+          <li>What was the latest delivery outcome: status code, timeout, TLS issue, redirect, or network error?</li>
+        </ul>
+
+        <h2>2. Explain retry state</h2>
+        <ul>
+          <li>How many attempts have happened?</li>
+          <li>When was the latest attempt?</li>
+          <li>When is the next retry, or are automatic retries exhausted?</li>
+          <li>What customer action is needed before retry succeeds?</li>
+        </ul>
+
+        <h2>3. Give a recovery path</h2>
+        <ul>
+          <li>Can support manually resend, replay, backfill, or provide a reconciliation list?</li>
+          <li>Who owns the support handoff and next update?</li>
+          <li>What should the customer check: endpoint availability, POST handling, 2xx response, TLS, WAF, firewall, or allowlist?</li>
+        </ul>
+
+        <h2>4. Avoid duplicate and privacy risk</h2>
+        <ul>
+          <li>Add an idempotency or duplicate-processing caveat when replay, retry, resend, or backfill is discussed.</li>
+          <li>Do not guarantee no data loss unless that has been validated by approved systems.</li>
+          <li>Avoid customer blame, fake certainty, private payload excerpts, raw headers, tokens, and signing secrets.</li>
+        </ul>
+
+        <p><a class="button primary" href="./?utm_source=seo&utm_medium=organic&utm_campaign=webhook_delivery_failure_template#workflow">Generate a webhook failure brief</a></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p>Browser-local webhook failure notice QA. No live replay, endpoint scan, payload upload, signing secret storage, or customer email sending.</p>
+      <a href="./">Webhook Delivery Failure Briefs</a>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
